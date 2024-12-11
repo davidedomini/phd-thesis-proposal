@@ -17,3 +17,6 @@ _minted*/
 *.vrb
 build/
 out/
+phd-thesis-proposal.fdb_latexmk
+phd-thesis-proposal.fls
+phd-thesis-proposal.pdf
