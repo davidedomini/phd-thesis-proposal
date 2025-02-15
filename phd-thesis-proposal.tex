@@ -6,6 +6,7 @@
 \usepackage{mathrsfs}  % mathscr font
 \usepackage{boxedminipage}
 \usepackage{rotating}
+\usepackage[inline]{enumitem}
 %\usepackage{natbib}
 \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
 \begin{document}
@@ -74,17 +75,33 @@
 	
 \end{titlepage}
 
-\section{Introduction}\label{sec:intro}
+\section{Research Context}\label{sec:intro}
 
-\section{Background and Related Work}\label{sec:related}
+Computing devices have become ubiquitous in everyday life.
+%
+This trend has paved the way for research fields aimed at exploiting
+ the potential of device collectives to build next-generation systems, 
+ including: collective computing~\cite{DBLP:journals/computer/Abowd16}
+ and collective adaptive systems (CAS)~\cite{DBLP:journals/sttt/WirsingJN23,robyphdthesis}.
+%
+More in particular, following Mitchell's definition~\cite{DBLP:conf/metacognition/Mitchell05}, 
+ in this thesis we refer to CAS as distributed systems comprising multiple agents 
+ such that each agent:
+ \begin{enumerate*}[label=(\roman*)]
+	\item can interact with other agents either directly or indirectly;
+	\item does not individually posses system-wide knowledge;
+	\item can exhibit learning to expand its personal knowledge; and
+	\item can make decisions based on collective or aggregated knowledge from some of its peers.
+ \end{enumerate*}
 
-\subsection{Collective Adaptive Systems}
+These systems enable the development of innovative applications in a wide range of real-world domains, such as: 
+ smart cities~\cite{DBLP:conf/icse/IftikharRBW017}, 
+ traffic control~\cite{DBLP:journals/tits/ChuWCL20,DBLP:books/sp/Muller2011/ProthmannTBHMS11} 
+ with autonomous vehicles~\cite{DBLP:journals/corr/BojarskiTDFFGJM16}, 
+ coordinated robot swarms for search and rescue~\cite{DBLP:journals/ijon/ZhouLLXS21} 
+ or environmental monitoring~\cite{DBLP:conf/acsos/AguzziVE23}, and many more.
+%
 
-\subsection{Many-Agent Cooperative Learning}
-
-\subsubsection{Reinforcement Learning}
-
-\subsubsection{Federated Learning}
 
 
 \section{Contribution}\label{sec:contribution}
@@ -94,15 +111,10 @@
 \subsection{Technological}
 
 
-
 \section{Future Work}\label{sec:future}
 
 
-
-\noindent
-\nocite{*}
-
-\bibliographystyle{alpha}
+\bibliographystyle{unsrt}
 \bibliography{bibliography}
 
 \end{document}
