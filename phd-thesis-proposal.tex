@@ -8,7 +8,11 @@
 \usepackage{rotating}
 \usepackage[inline]{enumitem}
 %\usepackage{natbib}
+\usepackage{xcolor}
 \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
+
+\newcommand{\todoinline}[1]{{\color{violet} #1}}
+
 \begin{document}
 
 \begin{titlepage}
@@ -86,7 +90,7 @@ This trend has paved the way for research fields aimed at exploiting
 %
 More in particular, following Mitchell's definition~\cite{DBLP:conf/metacognition/Mitchell05}, 
  in this thesis we refer to CAS as distributed systems comprising multiple agents 
- such that each agent:
+ such that each agent: \todoinline{Say that agents number is very high, i.e. explain concept of many}
  \begin{enumerate*}[label=(\roman*)]
 	\item can interact with other agents either directly or indirectly;
 	\item does not individually posses system-wide knowledge;
@@ -101,6 +105,36 @@ These systems enable the development of innovative applications in a wide range 
  coordinated robot swarms for search and rescue~\cite{DBLP:journals/ijon/ZhouLLXS21} 
  or environmental monitoring~\cite{DBLP:conf/acsos/AguzziVE23}, and many more.
 %
+However, despite this great potential, several challenges arise when engineering these systems.
+%
+First and foremost, control and decision-making demand particular attention.
+%
+Achieving an optimal balance between centralized and decentralized control is crucial, 
+ as neither extreme is feasible nor desirable in dynamic systems~\cite{DBLP:conf/coordination/CasadeiPVN19}. 
+% 
+Excessive centralization may lead to bottlenecks and single points of failure, 
+ whereas complete decentralization can hinder coordination and consistency.
+%
+Additionally, the dynamic nature of these systems, characterized by constant 
+ environmental changes, mobility, and potential component failures, requires adaptive 
+ learning mechanisms capable of responding swiftly 
+ to evolving conditions~\cite{DBLP:journals/swarm/PrasetyoMF19}.
+%
+Another key consideration is the locality principle, where operational efficiency and cost 
+ are heavily influenced by the spatial proximity of data sources, processing units, and users.
+%
+Furthermore, partial observability introduces uncertainty, as individual components may have 
+ limited or incomplete information about the global state, complicating accurate 
+ decision-making~\cite{DBLP:conf/uai/HeDB22}.
+%
+Data privacy is also a growing concern, particularly in light of stringent regulations like GDPR~\cite{GDPR}
+ in the European Union, necessitating privacy-preserving learning techniques.
+%
+Finally, data heterogeneity~\cite{DBLP:journals/fgcs/MaZLCQ22,DBLP:journals/ijon/ZhuXLJ21},
+ stemming from diverse source, can significantly impact learning stability and accuracy.
+%
+Addressing these challenges is essential for the effective deployment of cooperative learning 
+ in collective adaptive systems.
 
 
 
