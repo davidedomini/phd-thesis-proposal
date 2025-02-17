@@ -29,6 +29,7 @@
 	{ \large \bfseries Ph.D. Thesis Proposal}\\[0.6cm]
 	{ \large Engineering Many-Agent Cooperative Learning in Collective Adaptive Systems }\\[0.6cm]
 
+    \todoinline{Should we change Collective Adaptive Systems with Collective Cyber-Physical Ecosystems?}
 
 	\bfseries{February, 2024}
 
@@ -57,6 +58,7 @@
 
 \section{Research Context}\label{sec:intro}
 
+\paragraph{\emph{Context.}}
 Computing devices have become ubiquitous in everyday life.
 %
 This trend has paved the way for research fields aimed at exploiting
@@ -66,14 +68,19 @@ This trend has paved the way for research fields aimed at exploiting
 %
 More in particular, following Mitchell's definition~\cite{DBLP:conf/metacognition/Mitchell05}, 
  in this thesis we refer to CAS as distributed systems comprising multiple agents 
- such that each agent: \todoinline{Say that agents number is very high, i.e. explain concept of many}
+ such that each agent:
  \begin{enumerate*}[label=(\roman*)]
 	\item can interact with other agents either directly or indirectly;
 	\item does not individually posses system-wide knowledge;
 	\item can exhibit learning to expand its personal knowledge; and
 	\item can make decisions based on collective or aggregated knowledge from some of its peers.
  \end{enumerate*}
+%
+Notably, we focus on systems involving a large number of agents -- potentially in the hundreds
+ or thousands -- which is commonly referred to in the literature 
+ as many-agents~\cite{DBLP:phd/ethos/Yang21a}.
 
+\paragraph{\emph{Opportunities and challenges.}}
 These systems enable the development of innovative applications in a wide range of real-world domains, such as: 
  smart cities~\cite{DBLP:conf/icse/IftikharRBW017}, 
  traffic control~\cite{DBLP:journals/tits/ChuWCL20,DBLP:books/sp/Muller2011/ProthmannTBHMS11} 
@@ -112,16 +119,87 @@ Finally, data heterogeneity~\cite{DBLP:journals/fgcs/MaZLCQ22,DBLP:journals/ijon
 Addressing these challenges is essential for the effective deployment of cooperative learning 
  in collective adaptive systems.
 
+\paragraph{\emph{Related works.}}
+In the literature, two main approaches can be identified for developing these systems: 
+ those based on manual design and those based on automatic design.
 
+One approach of manual design that has recently gained significant attention is 
+ Aggregate Computing (AC)~\cite{DBLP:journals/jlap/ViroliBDACP19}. 
+% 
+AC is a macro-programming~\cite{DBLP:journals/csur/Casadei23} paradigm that shifts the focus from individual 
+ devices to the collective system as a whole, providing a functional programming language to express collective 
+ behaviors through computations over distributed data structures 
+ known as computational fields~\cite{DBLP:journals/pervasive/MameiZL04,DBLP:journals/jlap/ViroliBDACP19}. 
+%
+Another relevant approach is multi-agent programming, which involves designing agent-based behaviors 
+ using frameworks such as JaCaMo~\cite{boissier2020multi}.
+
+However, engineering collective systems manually can be challenging and error-prone, particularly in complex, 
+ non-stationary environments. 
+% 
+An alternative strategy is to develop methods for the automatic design 
+ of behaviors, which can enhance adaptability.
+%
+There are different options for achieving this, depending on the specific task to be solved. 
+%
+On the one hand, for unsupervised learning scenarios, a widely adopted approach is to leverage multi-agent 
+ reinforcement learning (MARL)~\cite{DBLP:journals/corr/abs-1911-10635,DBLP:journals/tsmc/BusoniuBS08}. 
+% 
+In MARL, learning is conceptualized as an interaction between multiple agents and their shared environment. 
+%
+Each agent follows a policy that dictates its actions based on its current state. 
+%
+The agent then executes the chosen action within the environment. 
+%
+As a result of these actions, the environment transitions to a new state and provides feedback 
+ in the form of rewards to each agent. 
+% 
+Through this process, agents learn to optimize their policies, ultimately leading to the 
+ emergence of complex collective behaviors.
+%
+On the other hand, for supervised learning scenarios, a common approach is 
+ Federated Learning~\cite{DBLP:conf/aistats/McMahanMRHA17}.
+%
+FL not only enables cooperative learning to train a shared model from distributed datasets
+ but also preserves data privacy.
+%
+This technique allows the agents to train a joint model without the need of collecting and merging
+ multiple datasets into a single central server, thus making it possible to work in contexts with strong 
+ privacy concerns---for instance, hospitals~\cite{DBLP:journals/csur/NguyenPPDSLDH23} 
+ or banks~\cite{DBLP:series/lncs/LongT0Z20}.
+%
+Moreover, in highly distributed systems, given the large volume of generated data, it becomes inconvenient, 
+ or also infeasible, to move all the data to a central server~\cite{DBLP:journals/comsur/NguyenDPSLP21}.
+%
+In the literature, most FL algorithms share a common learning flow: 
+ \begin{enumerate*}[label=(\roman*)]
+	\item \emph{model initialization}: the central server initializes a common base model that is shared with each client;
+	\item \emph{local learning}: each client performs one or more steps of local learning on its own dataset;
+	\item \emph{local models sharing}: each client sends back to the central server the new model trained on its own data 
+     (i.e. the local model); and
+	\item \emph{local models aggregation}: the local models collected by the central server are aggregated to obtain the 
+     new global model.
+ \end{enumerate*}
+%
+This process is carried out iteratively for a predefined number of global rounds. The most common and simple models
+ aggregation method is called FedAvg; it was introduced in~\cite{DBLP:conf/aistats/McMahanMRHA17}
+ and consists in performing an average of the local models to obtain the next global model.
+
+
+\paragraph{\emph{Research gap.}}
 
 \section{Contribution}\label{sec:contribution}
 
-\subsection{Methodological}
+\paragraph{\emph{Methodological.}}
 
-\subsection{Technological}
+\paragraph{\emph{Technological.}}
 
 
 \section{Future Work}\label{sec:future}
+
+
+
+\section{Thesis Structure}\label{sec:structure}
 
 
 \bibliographystyle{unsrt}
