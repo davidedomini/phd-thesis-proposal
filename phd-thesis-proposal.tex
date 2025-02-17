@@ -29,8 +29,6 @@
 	{ \large \bfseries Ph.D. Thesis Proposal}\\[0.6cm]
 	{ \large Engineering Many-Agent Cooperative Learning in Collective Adaptive Systems }\\[0.6cm]
 
-    \todoinline{Should we change Collective Adaptive Systems with Collective Cyber-Physical Ecosystems?}
-
 	\bfseries{February, 2024}
 
 
@@ -185,8 +183,47 @@ This process is carried out iteratively for a predefined number of global rounds
  aggregation method is called FedAvg; it was introduced in~\cite{DBLP:conf/aistats/McMahanMRHA17}
  and consists in performing an average of the local models to obtain the next global model.
 
-
 \paragraph{\emph{Research gap.}}
+
+Despite significant progress in the field of cooperative learning within CAS, 
+ several challenges remain unresolved, indicating substantial research gaps.
+%
+First, achieving large-scale cooperative learning continues to be challenging, both from technological 
+ and methodological perspectives. 
+% 
+Technologically, simulating these systems is highly resource-intensive, requiring significant 
+ computational power and time. 
+% 
+This necessitates the development of more efficient tools and advanced learning pipelines to enhance 
+ scalability and reduce resource consumption.
+%
+Methodologically, learning in environments with a high number of agents is often unstable and challenging to manage. 
+%
+Centralized learning architectures are frequently impractical, primarily due to privacy concerns or technical 
+ constraints related to communication and synchronization overheads. 
+% 
+Although decentralized approaches have been proposed as a viable alternative, they typically lead to 
+ suboptimal performance when compared to centralized counterparts, largely due to difficulties in maintaining global 
+ coordination and consistency.
+%
+Another critical challenge arises from the heterogeneous data distribution among agents.
+% 
+This heterogeneity is frequently influenced by the spatial distribution of the agents.
+%
+This builds on the assumption that devices in spatial proximity have similar experiences and make similar 
+ observations~\cite{esterle2022deep}, as
+ the phenomena to capture is intrinsically context dependent
+% 
+However, this locality aspect is often overlooked in both MARL and FL literature.
+
+
+% - despite all the advances in this field several challenges are still open problems
+% - first large scale cooperative learning is still difficult to achieve due to both technological and methodological point of view
+% - technologically speaking simulating these systems is time and resource consuming, so we need better tools and learning pipelines
+% - methodologically, learning with a high number of agents is frequently unstable and difficult
+% - a centralized learning is often not feasible (e.g., due to privacy concerns or technical reasons)
+% - decentralized approaches are applicable but often leads to worse performances 
+% - data distribution among agents are often heterogeneous, and frequently this arises from the spatial distribution of the agents, since it is more likely that nearby agents experience a similar phenomena, but this aspect is often overlooked both in MARL and in FL 
 
 \section{Contribution}\label{sec:contribution}
 
@@ -197,7 +234,7 @@ This process is carried out iteratively for a predefined number of global rounds
 
 \section{Future Work}\label{sec:future}
 
-
+	
 
 \section{Thesis Structure}\label{sec:structure}
 
