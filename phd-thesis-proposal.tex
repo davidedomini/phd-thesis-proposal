@@ -56,7 +56,7 @@
 
 \section{Research Context}\label{sec:intro}
 
-\paragraph{\emph{Context.}}
+\subsection{Context}
 Computing devices have become ubiquitous in everyday life.
 %
 This trend has paved the way for research fields aimed at exploiting
@@ -78,7 +78,7 @@ Notably, we focus on systems involving a large number of agents -- potentially i
  or thousands -- which is commonly referred to in the literature 
  as many-agents~\cite{DBLP:phd/ethos/Yang21a}.
 
-\paragraph{\emph{Opportunities and challenges.}}
+\subsection{Opportunities and challenges}
 These systems enable the development of innovative applications in a wide range of real-world domains, such as: 
  smart cities~\cite{DBLP:conf/icse/IftikharRBW017}, 
  traffic control~\cite{DBLP:journals/tits/ChuWCL20,DBLP:books/sp/Muller2011/ProthmannTBHMS11} 
@@ -117,10 +117,11 @@ Finally, data heterogeneity~\cite{DBLP:journals/fgcs/MaZLCQ22,DBLP:journals/ijon
 Addressing these challenges is essential for the effective deployment of cooperative learning 
  in collective adaptive systems.
 
-\paragraph{\emph{Related works.}}
+\subsection{Background}
 In the literature, two main approaches can be identified for developing these systems: 
  those based on manual design and those based on automatic design.
 
+\paragraph{Manual design.}
 One approach of manual design that has recently gained significant attention is 
  Aggregate Computing (AC)~\cite{DBLP:journals/jlap/ViroliBDACP19}. 
 % 
@@ -132,7 +133,8 @@ AC is a macro-programming~\cite{DBLP:journals/csur/Casadei23} paradigm that shif
 Another relevant approach is multi-agent programming, which involves designing agent-based behaviors 
  using frameworks such as JaCaMo~\cite{boissier2020multi}.
 
-However, engineering collective systems manually can be challenging and error-prone, particularly in complex, 
+\paragraph{Automatic design.}
+Engineering CAS manually can be challenging and error-prone, particularly in complex, 
  non-stationary environments. 
 % 
 An alternative strategy is to develop methods for the automatic design 
@@ -141,7 +143,8 @@ An alternative strategy is to develop methods for the automatic design
 There are different options for achieving this, depending on the specific task to be solved. 
 %
 On the one hand, for unsupervised learning scenarios, a widely adopted approach is to leverage multi-agent 
- reinforcement learning (MARL)~\cite{DBLP:journals/corr/abs-1911-10635,DBLP:journals/tsmc/BusoniuBS08}. 
+ reinforcement learning (MARL)~\cite{DBLP:journals/corr/abs-1911-10635,DBLP:journals/tsmc/BusoniuBS08}---in the 
+ literature, in case of large scale of agents, it is commonly referred as many-agent. 
 % 
 In MARL, learning is conceptualized as an interaction between multiple agents and their shared environment. 
 %
@@ -183,7 +186,7 @@ This process is carried out iteratively for a predefined number of global rounds
  aggregation method is called FedAvg; it was introduced in~\cite{DBLP:conf/aistats/McMahanMRHA17}
  and consists in performing an average of the local models to obtain the next global model.
 
-\paragraph{\emph{Research gap.}}
+\subsection{Research gap}
 
 Despite significant progress in the field of cooperative learning within CAS, 
  several challenges remain unresolved, indicating substantial research gaps.
@@ -219,7 +222,58 @@ However, this locality aspect is often overlooked in both MARL and FL literature
 
 \section{Contribution}\label{sec:contribution}
 
-\paragraph{\emph{Methodological.}}
+\subsection{Methodological}
+
+\subsubsection{Many-Agent Reinforcement Learning}
+
+As described above, in MARL, fully centralized or fully decentralized architectures are often 
+ unfeasible due to technical constraints and challenges related to learning stability. 
+% 
+Therefore, it is crucial to find a trade-off between these two extremes to ensure both scalability and 
+ effective learning. 
+% 
+Moreover, in CAS, it is essential to incorporate some form of collective knowledge to enhance 
+ coordination and adaptability.
+% 
+To address these limitations, we explored two main directions. 
+%
+The first approach is the adoption of a Centralized Training Decentralized Execution (CTDE) architecture, 
+ which leverages training on centralized experience to improve learning efficiency while maintaining 
+ decentralized execution for scalability. 
+% 
+The second approach involves independent learners, where each agent learns autonomously but shares information with 
+ its neighboring agents to foster collaboration and improve overall system performance.
+
+\paragraph{Centralized Learning}
+In the CTDE framework, we collect experience from agents in a centralized 
+ learner during training while deploying decentralized policies during execution. 
+% 
+To approximate these policies, we propose the use of Graph Neural Networks (GNNs) for two main reasons. 
+%
+First, GNNs enable the integration of both local experience and interactions with neighboring agents 
+ when their connections are represented as a graph. 
+% 
+Second, GNNs allow training with centralized information while enabling decentralized and asynchronous execution, 
+ requiring only data from an agent's immediate neighbors. 
+% 
+We tested this approach in two different CAS scenarios. 
+%
+In the first case~\cite{DBLP:journals/taas/FarabegoliDAV2025}, we applied this approach to optimize task allocation in 
+ the edge-cloud continuum, demonstrating how agents executing a macro-program composed of multiple submodules can offload 
+ some of these submodules to an edge or cloud server to meet latency and battery constraints. 
+%
+Additionally, we showed that enhancing these graphs with collective information gathered through the macro-programming 
+ improves adaptability to environmental changes. 
+% 
+In another study~\cite{DBLP:conf/coordination/VenturiniDAV2025}, we explored the effectiveness of GNNs in MARL for 
+ scalability with a varying number of agents in a swarm of robots. 
+% 
+Specifically, we trained a GNN-based policy with few agents using a CTDE approach and then tested it 
+ with an increasing number of agents to evaluate its ability to maintain high performance despite the scale variation.
+
+\paragraph{Independent Learning}
+
+\subsubsection{Federated Learning}
 
 % Field-Based coordination for FL
 % Proximity based self federated learning
@@ -230,7 +284,7 @@ However, this locality aspect is often overlooked in both MARL and FL literature
 % Neighbor based decentralized MARL (SAC)
 % 
 
-\paragraph{\emph{Technological.}}
+\subsection{Technological}
 
 % Scarlib
 % A scalable simulation pipeline for MARL (DSRT)
