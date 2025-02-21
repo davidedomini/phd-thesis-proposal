@@ -244,7 +244,7 @@ The first approach is the adoption of a Centralized Training Decentralized Execu
 The second approach involves independent learners, where each agent learns autonomously but shares information with 
  its neighboring agents to foster collaboration and improve overall system performance.
 
-\paragraph{Centralized Learning}
+\paragraph{Centralized Learning.}
 In the CTDE framework, we collect experience from agents in a centralized 
  learner during training while deploying decentralized policies during execution. 
 % 
@@ -271,7 +271,32 @@ In another study~\cite{DBLP:conf/coordination/VenturiniDAV2025}, we explored the
 Specifically, we trained a GNN-based policy with few agents using a CTDE approach and then tested it 
  with an increasing number of agents to evaluate its ability to maintain high performance despite the scale variation.
 
-\paragraph{Independent Learning}
+\paragraph{Independent Learning.}
+When a centralized experience collection is not feasible, making a CTDE architecture impractical, 
+ an alternative approach is to adopt an independent learning paradigm (DTDE). 
+% 
+In this setting, each agent trains its policy using only its own experience. 
+%
+However, this leads to less stable learning, requiring more time to converge and often resulting in lower accuracy. 
+%
+To mitigate these issues, we explored the impact of experience sharing among neighboring 
+ agents~\cite{DBLP:conf/sac/MalucelliDAV25}, introducing a trade-off between CTDE and DTDE. 
+% 
+Specifically, we proposed three different neighbor-based approaches:
+ \begin{enumerate*}[label=(\roman*)]
+	\item \emph{NN-sharing}: each agent collects the policies of all its neighbors and aggregates them with its own policy, 
+	 following a concept similar to federated learning;
+	\item \emph{Experience sharing}: each agent collects a sample of experience tuples (i.e., state, action, reward, next state) 
+	 from its neighbors to enhance learning; and
+	\item \emph{NN-consensus}: a simple consensus algorithm is applied among neighboring agents to obtain a shared policy, 
+	 effectively synchronizing their neural networks.
+ \end{enumerate*}
+%
+We compared these three approaches against both DTDE and CTDE. 
+%
+Our results show that while CTDE and DTDE set the upper and lower bounds for reward and episode time (an approximation of 
+ learning convergence time), all three proposed methods shift these metrics closer to CTDE, demonstrating their 
+ effectiveness in improving the independent learning paradigm.
 
 \subsubsection{Federated Learning}
 
