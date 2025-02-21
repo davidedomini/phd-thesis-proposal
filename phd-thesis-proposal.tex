@@ -258,9 +258,10 @@ Second, GNNs allow training with centralized information while enabling decentra
 % 
 We tested this approach in two different CAS scenarios. 
 %
-In the first case~\cite{DBLP:journals/taas/FarabegoliDAV2025}, we applied this approach to optimize task allocation in 
- the edge-cloud continuum, demonstrating how agents executing a macro-program composed of multiple submodules can offload 
- some of these submodules to an edge or cloud server to meet latency and battery constraints. 
+In the first case, we applied this approach to optimize task allocation in the 
+ edge-cloud continuum~\cite{DBLP:journals/taas/FarabegoliDAV2025,DBLP:conf/woa/DominiFAV24}, 
+ demonstrating how agents executing a macro-program composed of multiple submodules can offload some of these submodules 
+ to an edge or cloud server to meet latency and battery constraints. 
 %
 Additionally, we showed that enhancing these graphs with collective information gathered through the macro-programming 
  improves adaptability to environmental changes. 
@@ -300,14 +301,63 @@ Our results show that while CTDE and DTDE set the upper and lower bounds for rew
 
 \subsubsection{Federated Learning}
 
-% Field-Based coordination for FL
-% Proximity based self federated learning
-% FBFL: A Field-Based Coordination Approach for Data Heterogeneity in Federated Learning
-% IoT Paper? 
-% Towards intelligent pulverized systems: a modern approach for edge-cloud services
-% Heterogeneous GNN for Collective-Task Offloading in Cloud-Edge via Deep Q-Learning (TAAS)
-% Neighbor based decentralized MARL (SAC)
+An important challenge in cooperative learning within CAS is ensuring privacy.
+%
+A widely adopted approach in the literature is Federated Learning (FL), which enables agents 
+ to collaboratively train a shared model without directly exchanging raw data. 
 % 
+However, FL typically relies on a centralized architecture, which may not be suitable for large-scale many-agent CAS, 
+ as a central server introduces both a single point of failure and a potential bottleneck.
+%
+Another critical challenge in FL is data heterogeneity, meaning that data across clients is non-IID 
+ (i.e., not identically and independently distributed). 
+% 
+For instance, depending on the level of skewness, some clients may only have access to a subset of the labels. 
+%
+This heterogeneity often arises from the spatial locality of agents collecting data, yet it is frequently 
+ overlooked in the literature. 
+% 
+Even clustered FL algorithms, which assume that agents can be grouped into clusters with IID data internally, 
+ are often evaluated using skewed data at the device level, limiting their real-world applicability.
+%
+To address this issue, we proposed ProFed~\cite{DBLP:conf/ijcnn/DominiAV2025}, a benchmarking framework that synthetically 
+ partitions well-known computer vision datasets following these principles. 
+% 
+Specifically, ProFed creates subregions with IID data internally and non-IID data across clusters, better capturing the 
+ real-world data distribution in large-scale CAS scenarios.
+
+Beyond this benchmark, we have developed several approaches to design learning algorithms that address these challenges. 
+%
+In our first work~\cite{DBLP:conf/coordination/DominiAEV24}, later extended in~\cite{domini2025fbflfieldbasedcoordinationapproach}, 
+ we proposed leveraging aggregate computing, a macroprogramming approach, to create spatial-based subregions. 
+% 
+This builds upon the concept of Self-Organizing Coordination Regions~\cite{DBLP:conf/coordination/CasadeiPVN19}, 
+ where a leader is elected for each subregion.
+%
+The leader is responsible for collecting data, computing updates, and sharing back these updates within its subregion.
+%
+In our algorithm, the leader acts as an aggregator for models trained by agents inside its subregion, leading to two key advantages. 
+%
+First, the system no longer relies on a centralized architecture but instead forms a resilient, self-organizing structure. 
+%
+Second, within each subregion, data becomes IID, allowing the training process to achieve higher accuracy.
+%
+To validate these effects, we conducted extensive simulations. 
+%
+Specifically, we compared our approach against several baselines--including FedAvg, 
+ Scaffold~\cite{DBLP:conf/icml/KarimireddyKMRS20}, and FedProx~\cite{DBLP:conf/mlsys/LiSZSTS20}--on 
+ widely used computer vision datasets (MNIST~\cite{lecun2010mnist}, Fashion-MNIST~\cite{DBLP:journals/corr/abs-1708-07747}, 
+ and Extended MNIST~\cite{DBLP:journals/corr/CohenATS17}) under different levels of data skewness. 
+% 
+Additionally, we simulated random leader failures to assess system robustness. 
+%
+Our results demonstrate that the learning process dynamically stabilizes with new leaders, ensuring continuous training without 
+ significant performance drops or interruptions.
+
+% - our latest works, builds on top of the concept of creating subregions explained above but extends this with the concept of space-fluidity
+% - more specifically subregions are no more created considering only the spatial proximity but also including some similarity metrics to shrink or expand them if needed
+% - More in detail  
+
 
 \subsection{Technological}
 
@@ -315,10 +365,10 @@ Our results show that while CTDE and DTDE set the upper and lower bounds for rew
 % A scalable simulation pipeline for MARL (DSRT)
 % ProFed Benchmark
 
-
 \section{Future Work}\label{sec:future}
 
 % Transfer Learning + SAC
+% show that sac paper is usefull also with localized phenomena
 % Sparse Neural Network
 	
 
