@@ -354,16 +354,36 @@ Additionally, we simulated random leader failures to assess system robustness.
 Our results demonstrate that the learning process dynamically stabilizes with new leaders, ensuring continuous training without 
  significant performance drops or interruptions.
 
-% - our latest works, builds on top of the concept of creating subregions explained above but extends this with the concept of space-fluidity
-% - more specifically subregions are no more created considering only the spatial proximity but also including some similarity metrics to shrink or expand them if needed
-% - More in detail  
-
+Our latest works~\cite{DBLP:journals/corr/abs-2407-12410,DBLP:journals/iot/DominiAFVE2025} build upon the concept of subregion 
+ creation described above, extending it with the idea of space-fluidity~\cite{DBLP:journals/lmcs/CasadeiMPVZ23}. 
+% 
+In this approach, subregions are no longer formed based solely on spatial proximity but are dynamically adjusted using 
+ similarity metrics to either shrink or expand their boundaries as needed.
+%
+Initially, a subregion is created based on spatial proximity, followed by the election of an aggregator. 
+%
+Then, the subregion is iteratively expanded or contracted based on an accumulated error metric. 
+%
+This adjustment process continues until the similarity error, measured from the aggregator outward, 
+ falls below a predefined threshold.
+%
+In these studies, we employ a loss-based similarity check: each agent collects the models of its neighbors and performs an inference 
+ step using its own data. 
+% 
+If the computed loss remains below the threshold, the neighboring agent's data is considered similar enough, meaning both agents belong 
+ to the same subregion.
+%
+To evaluate this approach, we conducted extensive simulations with varying numbers and shapes of subregions. 
+%
+Our results show that the number of dynamically formed federations stabilizes to the actual number of effective subregions, 
+ demonstrating the robustness and adaptability of our method.
 
 \subsection{Technological}
 
 % Scarlib
 % A scalable simulation pipeline for MARL (DSRT)
 % ProFed Benchmark
+% NDR
 
 \section{Future Work}\label{sec:future}
 
@@ -405,6 +425,7 @@ Our results demonstrate that the learning process dynamically stabilizes with ne
 	 Federated Learning~\cite{domini2025fbflfieldbasedcoordinationapproach}
 	\item Scalable Coordination in Swarms: A Graph Neural Network Approach.~\cite{DBLP:conf/coordination/VenturiniDAV2025}
 	\item Decentralized Proximity-Aware Clustering for Self-Federated Learning.~\cite{DBLP:journals/iot/DominiAFVE2025}
+	\item A Demonstrator Toolchain for Self-organizing Robot Teams.~\cite{DBLP:conf/coordination/AguzziNDR25} 
 \end{enumerate}
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
