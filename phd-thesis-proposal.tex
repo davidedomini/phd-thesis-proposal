@@ -380,20 +380,55 @@ Our results show that the number of dynamically formed federations stabilizes to
 
 \subsection{Technological}
 
-% Scarlib
-% A scalable simulation pipeline for MARL (DSRT)
-% ProFed Benchmark
-% NDR
+A crucial aspect of training machine learning algorithms in the Many-Agent context is the efficiency and flexibility of simulation tools. 
+%
+Several simulators exist in the literature, including: NetLogo~\cite{tisue2004netlogo}, Sibilla~\cite{DBLP:journals/scp/GiudiceMQRL24}, 
+ Alchemist~\cite{Pianini_2013}, ARGoS~\cite{DBLP:journals/swarm/PinciroliTOPBBMFCDBGD12}, 
+ and PettingZoo~\cite{DBLP:conf/nips/TerryBGJHSSDHPW21}. 
+% 
+To assess their suitability for MARL, in~\cite{DBLP:conf/dsrt/DominiAPV24},  we examined them across several key characteristics: 
+\begin{enumerate*}[label=(\roman*)]
+	\item configurability;
+	\item lifecycle management; 
+	\item experience extraction;
+	\item scalability;
+	\item distributed execution; and
+	\item deep learning integration.
+ \end{enumerate*}
+%
+Our analysis revealed that none of these simulators, except for Alchemist, fully satisfy all the specified characteristics. 
+%
+For instance, while ARGoS excels in configurability, lifecycle management, and experience extraction, 
+ it lacks deep learning integration and distributed execution, making it less suitable for large-scale MARL experiments.
+%
+To address these limitations, we proposed a reusable simulation pipeline for MARL based on the Alchemist simulator and 
+ demonstrated its flexibility and scalability in swarm robotics scenarios.
+
+When learning in CAS, beyond flexibility and efficiency in simulations, it is also crucial to incorporate 
+ collective knowledge into the learning process. 
+% 
+In~\cite{DBLP:conf/coordination/DominiCAV23,DBLP:journals/scp/DominiCAV24}, we introduced ScaRLib, a MARL tool built on the Alchemist simulator, 
+ that integrates RL algorithms with Aggregate Computing.
+%
+This integration enables each agent to enrich its state representation by incorporating collective information gathered from neighboring agents. 
+%
+By doing so, agents can make more informed decisions, improving coordination and adaptability.
+% 
+To evaluate the effectiveness of this approach, we conducted experiments in swarm robotics scenarios.
+
+Finally, in~\cite{DBLP:conf/coordination/AguzziNDR25}, we presented a real-world case study developed for the 
+ European Researchers' Night, where a small swarm of five robots coordinated to form spatial patterns.
+%
+Here, learning was not included in the toolchain; instead, coordination was achieved purely through Aggregate Computing. 
+%
+However, this toolchain serves as a foundation for future real-world experiments, where we aim to integrate learning algorithms 
+ to test their effectiveness in physical multi-agent systems.
 
 \section{Future Work}\label{sec:future}
 
 % Transfer Learning + SAC
 % show that sac paper is usefull also with localized phenomena
 % Sparse Neural Network
-	
-
-\section{Thesis Structure}\label{sec:structure}
-
 
 \section{Scientific Publications}\label{sec:pubblications}
 
