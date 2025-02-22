@@ -434,9 +434,60 @@ However, this toolchain serves as a foundation for future real-world experiments
 
 \section{Future Work}\label{sec:future}
 
-% Transfer Learning + SAC
-% show that sac paper is usefull also with localized phenomena
-% Sparse Neural Network
+Despite the various contributions proposed in this first year and a half, several open research directions
+ remain to be explored in the future.
+
+First and foremost, it will be crucial to define a detailed set of real-world use cases where our proposed approaches can be applied. 
+%
+Potential applications include traffic control or heating management for smart buildings. 
+%
+This will allow us to test our methods not only on synthetic datasets but also in real-world scenarios, 
+ ensuring their practical relevance and robustness. 
+% 
+Moreover, it will provide valuable insights into how the creation of specialized learning subregions, based on data distribution, 
+ affects the size and complexity of the required models. 
+% 
+Our intuition is that decomposing a phenomenon into simpler subproblems will enable learning with smaller, more efficient models, 
+ ultimately leading to resource savings.
+
+Another key challenge in these systems is that devices often operate under strict computational constraints. 
+%
+For this reason, we see sparse neural networks as a promising research avenue. 
+%
+This technique enables the removal of unimportant weights in neural networks, allowing learning even on devices without 
+ GPUs or powerful CPUs. 
+% 
+We have already begun experiments in this direction in collaboration with the University of Bolzano, 
+ and our preliminary results are highly encouraging. 
+% 
+Future work will also include comparisons with other model optimization techniques, such as quantization, 
+ to further reduce the training footprint.
+
+Additional promising research directions stem from our work on neighbor-based MARL approaches.
+%
+Specifically, it will be interesting to investigate whether and how these methods stabilize learning in environments 
+ where agents interact with highly localized phenomena. 
+% 
+Furthermore, in collaboration with a research group at Trinity College Dublin, we plan to explore the integration of neighbor-based learning 
+ with transfer learning for RL and aggregate computing.
+%
+This integration could provide multiple benefits. 
+%
+First, information exchange between agents would occur only when uncertainty is high in a given state, reducing unnecessary communication 
+ and potentially improving training efficiency. 
+% 
+In this way, an agent with low confidence in a state would avoid sharing misleading information with a more experienced agent, 
+ which could otherwise negatively impact future learning.
+%
+Finally, by incorporating the self-organizing coordination region concept from aggregate computing, we can envision a scenario where 
+ each region dynamically elects a teacher (i.e., the leader).
+% 
+This leader, having already learned the dynamics of its area, can assist nearby agents by sharing its experience. 
+%
+This could be particularly beneficial in settings where agents have heterogeneous models due to varying computational constraints. 
+%
+In such cases, a more powerful agent could train using a larger model, converge faster, and then act as a teacher to support resource-limited 
+ agents in the learning process.
 
 \section{Scientific Publications}\label{sec:pubblications}
 
