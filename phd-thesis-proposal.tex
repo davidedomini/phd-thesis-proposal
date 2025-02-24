@@ -62,9 +62,9 @@ Computing devices have become ubiquitous in everyday life.
 This trend has paved the way for research fields aimed at exploiting
  the potential of device collectives to build next-generation systems, 
  including: collective computing~\cite{DBLP:journals/computer/Abowd16}
- and collective adaptive systems (CAS)~\cite{DBLP:journals/sttt/WirsingJN23,robyphdthesis}.
+ and Collective Adaptive Systems (CAS)~\cite{DBLP:journals/sttt/WirsingJN23,robyphdthesis}.
 %
-More in particular, following Mitchell's definition~\cite{DBLP:conf/metacognition/Mitchell05}, 
+More in detail, following Mitchell's definition~\cite{DBLP:conf/metacognition/Mitchell05}, 
  in this thesis we refer to CAS as distributed systems comprising multiple agents 
  such that each agent:
  \begin{enumerate*}[label=(\roman*)]
@@ -86,14 +86,15 @@ These systems enable the development of innovative applications in a wide range 
  coordinated robot swarms for search and rescue~\cite{DBLP:journals/ijon/ZhouLLXS21} 
  or environmental monitoring~\cite{DBLP:conf/acsos/AguzziVE23}, and many more.
 %
-However, despite this great potential, several challenges arise when engineering these systems.
+Nevertheless, while these systems have significant potential, their engineering 
+ presents several challenges.
 %
 First and foremost, control and decision-making demand particular attention.
 %
 Achieving an optimal balance between centralized and decentralized control is crucial, 
- as neither extreme is feasible nor desirable in dynamic systems~\cite{DBLP:conf/coordination/CasadeiPVN19}. 
+ as neither extreme is feasible nor desirable in many dynamic systems~\cite{DBLP:conf/coordination/CasadeiPVN19}. 
 % 
-Excessive centralization may lead to bottlenecks and single points of failure, 
+Indeed, excessive centralization may lead to bottlenecks and single points of failure, 
  whereas complete decentralization can hinder coordination and consistency.
 %
 Additionally, the dynamic nature of these systems, characterized by constant 
@@ -118,35 +119,35 @@ Addressing these challenges is essential for the effective deployment of coopera
  in collective adaptive systems.
 
 \subsection{Background}
-In the literature, two main approaches can be identified for developing these systems: 
+In the literature, two primary approaches to developing these systems can be identified:
  those based on manual design and those based on automatic design.
 
 \paragraph{Manual design.}
 One approach of manual design that has recently gained significant attention is 
- Aggregate Computing (AC)~\cite{DBLP:journals/jlap/ViroliBDACP19}. 
+ Aggregate Computing (AC)~\cite{DBLP:journals/computer/BealPV15}. 
 % 
 AC is a macro-programming~\cite{DBLP:journals/csur/Casadei23} paradigm that shifts the focus from individual 
  devices to the collective system as a whole, providing a functional programming language to express collective 
  behaviors through computations over distributed data structures 
- known as computational fields~\cite{DBLP:journals/pervasive/MameiZL04,DBLP:journals/jlap/ViroliBDACP19}. 
+ known as computational fields~\cite{DBLP:journals/pervasive/MameiZL04,DBLP:journals/tocl/AudritoVDPB19}. 
 %
 Another relevant approach is multi-agent programming, which involves designing agent-based behaviors 
- using frameworks such as JaCaMo~\cite{boissier2020multi}.
+ using frameworks such as JaCaMo~\cite{boissier2020multi} or Jakta~\cite{DBLP:conf/eumas/BaiardiBCP23}.
 
 \paragraph{Automatic design.}
 Engineering CAS manually can be challenging and error-prone, particularly in complex, 
  non-stationary environments. 
 % 
-An alternative strategy is to develop methods for the automatic design 
- of behaviors, which can enhance adaptability.
+An alternative strategy is to develop methods for automatically design 
+ behaviors, which can enhance adaptability.
 %
 There are different options for achieving this, depending on the specific task to be solved. 
 %
 On the one hand, for unsupervised learning scenarios, a widely adopted approach is to leverage multi-agent 
  reinforcement learning (MARL)~\cite{DBLP:journals/corr/abs-1911-10635,DBLP:journals/tsmc/BusoniuBS08}---in the 
- literature, in case of large scale of agents, it is commonly referred as many-agent. 
+ literature, in case of large scale of agents, it is commonly referred to as many-agent. 
 % 
-In MARL, learning is conceptualized as an interaction between multiple agents and their shared environment. 
+In MARL, learning is conceptualized as an interaction among multiple agents and their shared environment. 
 %
 Each agent follows a policy that dictates its actions based on its current state. 
 %
@@ -165,9 +166,9 @@ FL not only enables cooperative learning to train a shared model from distribute
  but also preserves data privacy.
 %
 This technique allows the agents to train a joint model without the need of collecting and merging
- multiple datasets into a single central server, thus making it possible to work in contexts with strong 
- privacy concerns---for instance, hospitals~\cite{DBLP:journals/csur/NguyenPPDSLDH23} 
- or banks~\cite{DBLP:series/lncs/LongT0Z20}.
+ multiple datasets into a single central server, thus supporting contexts in which privacy is a primary 
+ concern---for instance, healthcare~\cite{DBLP:journals/csur/NguyenPPDSLDH23} 
+ or banking~\cite{DBLP:series/lncs/LongT0Z20}.
 %
 Moreover, in highly distributed systems, given the large volume of generated data, it becomes inconvenient, 
  or also infeasible, to move all the data to a central server~\cite{DBLP:journals/comsur/NguyenDPSLP21}.
@@ -189,9 +190,9 @@ This process is carried out iteratively for a predefined number of global rounds
 \subsection{Research gap}
 
 Despite significant progress in the field of cooperative learning within CAS, 
- several challenges remain unresolved, indicating substantial research gaps.
+ several challenges remain open, indicating substantial research gaps.
 %
-First, achieving large-scale cooperative learning continues to be challenging, both from technological 
+First, achieving large-scale cooperative learning continues to be challenging, from both technological 
  and methodological perspectives. 
 % 
 Technologically, simulating these systems is highly resource-intensive, requiring significant 
@@ -230,7 +231,7 @@ All the experiments and tools developed as part of this work are publicly availa
 This is in line with our research group's strong commitment to open science and reproducibility, ensuring that 
  our findings can be easily accessed, validated, and extended by the community.
 
-\subsection{Methodological}
+\subsection{Conceptual Contributions}
 
 \subsubsection{Many-Agent Reinforcement Learning}
 
@@ -269,7 +270,7 @@ We tested this approach in two different CAS scenarios.
 In the first case, we applied this approach to optimize task allocation in the 
  edge-cloud continuum~\cite{DBLP:journals/taas/FarabegoliDAV2025,DBLP:conf/woa/DominiFAV24}, 
  demonstrating how agents executing a macro-program composed of multiple submodules can offload some of these submodules 
- to an edge or cloud server to meet latency and battery constraints. 
+ to an edge or cloud server to meet latency and power constraints. 
 %
 Additionally, we showed that enhancing these graphs with collective information gathered through the macro-programming 
  improves adaptability to environmental changes. 
@@ -278,7 +279,7 @@ In another study~\cite{DBLP:conf/coordination/VenturiniDAV2025}, we explored the
  scalability with a varying number of agents in a swarm of robots. 
 % 
 Specifically, we trained a GNN-based policy with few agents using a CTDE approach and then tested it 
- with an increasing number of agents to evaluate its ability to maintain high performance despite the scale variation.
+ with an increasing number of agents to evaluate its ability to scale preserving performance.
 
 \paragraph{Independent Learning.}
 When a centralized experience collection is not feasible, making a CTDE architecture impractical, 
@@ -386,7 +387,7 @@ To evaluate this approach, we conducted extensive simulations with varying numbe
 Our results show that the number of dynamically formed federations stabilizes to the actual number of effective subregions, 
  demonstrating the robustness and adaptability of our method.
 
-\subsection{Technological}
+\subsection{Applied Contributions}
 
 A crucial aspect of training machine learning algorithms in the Many-Agent context is the efficiency and flexibility of simulation tools. 
 %
@@ -439,36 +440,44 @@ However, this toolchain serves as a foundation for future real-world experiments
  
  \begin{enumerate}
 	 \item ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement 
-	  Learning in Scala.~\cite{DBLP:conf/coordination/DominiCAV23}
+	  Learning in Scala.~\cite{DBLP:conf/coordination/DominiCAV23} --- \emph{International Conference on Coordination Languages and Models}
 	 \item ScaRLib: Towards a hybrid toolchain for aggregate computing and many-agent 
-	  reinforcement learning.~\cite{DBLP:journals/scp/DominiCAV24}
-	 \item Field-Based Coordination for Federated Learning.~\cite{DBLP:conf/coordination/DominiAEV24}
+	  reinforcement learning.~\cite{DBLP:journals/scp/DominiCAV24} --- \emph{Science of Computer Programming}
+	 \item Field-Based Coordination for Federated Learning.~\cite{DBLP:conf/coordination/DominiAEV24} 
+	  --- \emph{International Conference on Coordination Languages and Models}
 	 \item Towards Intelligent Pulverized Systems: a Modern Approach 
-	  for Edge-Cloud Services.~\cite{DBLP:conf/woa/DominiFAV24}
-	 \item Proximity-based Self-Federated Learning.~\cite{DBLP:journals/corr/abs-2407-12410}
-	 \item Towards Self-Adaptive Cooperative Learning in Collective Systems.~\cite{DBLP:conf/acsos/Domini24}
+	  for Edge-Cloud Services.~\cite{DBLP:conf/woa/DominiFAV24} --- \emph{25th Workshop “From Objects to Agents”}
+	 \item Proximity-based Self-Federated Learning.~\cite{DBLP:journals/corr/abs-2407-12410} 
+	  --- \emph{2024 IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)}
+	 \item Towards Self-Adaptive Cooperative Learning in Collective Systems.~\cite{DBLP:conf/acsos/Domini24} 
+	  --- \emph{2024 IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)}
 	 \item A Reusable Simulation Pipeline for Many-Agent Reinforcement Learning.~\cite{DBLP:conf/dsrt/DominiAPV24}
+	  --- \emph{28th {IEEE/ACM} International Symposium on Distributed Simulation and Real Time Applications, {DS-RT}}
 	 \item Neighbor-Based Decentralized Training Strategies for Multi-Agent 
 	  Reinforcement Learning.~\cite{DBLP:conf/sac/MalucelliDAV25}
+	  --- \emph{40th {ACM/SIGAPP} Symposium on Applied Computing, SAC}
  \end{enumerate}
  
  \sloppypar
  \paragraph{\emph{Submitted for review.}}
  \begin{enumerate}
 	 \item Heterogeneous GNN for Collective-Task Offloading in Cloud-Edge via Deep
-	  Q-Learning.~\cite{DBLP:journals/taas/FarabegoliDAV2025}
+	  Q-Learning.~\cite{DBLP:journals/taas/FarabegoliDAV2025} --- \emph{ACM Transactions on Autonomous and Adaptive Systems}
 	 \item ProFed: a Benchmark for Proximity-based non-IID Federated Learning.~\cite{DBLP:conf/ijcnn/DominiAV2025}
+	  --- \emph{International Joint Conference on Neural Networks}
 	 \item FBFL: A Field-Based Coordination Approach for Data Heterogeneity in 
-	  Federated Learning~\cite{domini2025fbflfieldbasedcoordinationapproach}
+	  Federated Learning~\cite{domini2025fbflfieldbasedcoordinationapproach} --- \emph{Logical Methods Computer Science}
 	 \item Scalable Coordination in Swarms: A Graph Neural Network Approach.~\cite{DBLP:conf/coordination/VenturiniDAV2025}
-	 \item Decentralized Proximity-Aware Clustering for Self-Federated Learning.~\cite{DBLP:journals/iot/DominiAFVE2025}
+	  --- \emph{International Conference on Coordination Languages and Models}
+	 \item Decentralized Proximity-Aware Clustering for Self-Federated Learning.~\cite{DBLP:journals/iot/DominiAFVE2025} --- \emph{Internet of Things}
 	 \item A Demonstrator Toolchain for Self-organizing Robot Teams.~\cite{DBLP:conf/coordination/AguzziNDR25} 
+	  --- \emph{International Conference on Coordination Languages and Models}
  \end{enumerate}
 
 \section{Future Work}\label{sec:future}
 
-Despite the various contributions proposed in this first year and a half, several open research directions
- remain to be explored in the future.
+The investigation performed in this first year and a half, opened several research directions
+ to be explored in the future.
 
 \paragraph{Real-world use cases.}
 
@@ -485,7 +494,7 @@ Moreover, it will provide valuable insights into how the creation of specialized
 Our intuition is that decomposing a phenomenon into simpler subproblems will enable learning with smaller, more efficient models, 
  ultimately leading to resource savings.
 
-\paragraph{Computational Constraints and Sparse Neural Networks.}
+\paragraph{Energy Efficiency and Sparse Neural Networks.}
 Another key challenge in these systems is that devices often operate under strict computational constraints. 
 %
 For this reason, we see sparse neural networks as a promising research avenue. 
@@ -496,7 +505,7 @@ This technique enables the removal of unimportant weights in neural networks, al
 We have already begun experiments in this direction in collaboration with the University of Bolzano, 
  and our preliminary results are highly encouraging. 
 % 
-Future work will also include comparisons with other model optimization techniques, such as quantization, 
+Future work will also include comparison with other model optimization techniques, such as quantization, 
  to further reduce the training footprint.
 
 \paragraph{Neighbor-based MARL and Transfer Learning.}
@@ -513,7 +522,7 @@ This integration could provide multiple benefits.
 First, information exchange between agents would occur only when uncertainty is high in a given state, reducing unnecessary communication 
  and potentially improving training efficiency. 
 % 
-In this way, an agent with low confidence in a state would avoid sharing misleading information with a more experienced agent, 
+This way, an agent with low confidence in a state would avoid sharing misleading information with a more experienced agent, 
  which could otherwise negatively impact future learning.
 %
 Finally, by incorporating the self-organizing coordination region concept from aggregate computing, we can envision a scenario where 
