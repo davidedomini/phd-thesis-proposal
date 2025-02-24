@@ -432,10 +432,45 @@ Here, learning was not included in the toolchain; instead, coordination was achi
 However, this toolchain serves as a foundation for future real-world experiments, where we aim to integrate learning algorithms 
  to test their effectiveness in physical multi-agent systems.
 
+\subsection{List of Scientific Publications}\label{sec:pubblications}
+
+ \sloppypar
+ \paragraph{\emph{Published or accepted for pubblication.}}
+ 
+ \begin{enumerate}
+	 \item ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement 
+	  Learning in Scala.~\cite{DBLP:conf/coordination/DominiCAV23}
+	 \item ScaRLib: Towards a hybrid toolchain for aggregate computing and many-agent 
+	  reinforcement learning.~\cite{DBLP:journals/scp/DominiCAV24}
+	 \item Field-Based Coordination for Federated Learning.~\cite{DBLP:conf/coordination/DominiAEV24}
+	 \item Towards Intelligent Pulverized Systems: a Modern Approach 
+	  for Edge-Cloud Services.~\cite{DBLP:conf/woa/DominiFAV24}
+	 \item Proximity-based Self-Federated Learning.~\cite{DBLP:journals/corr/abs-2407-12410}
+	 \item Towards Self-Adaptive Cooperative Learning in Collective Systems.~\cite{DBLP:conf/acsos/Domini24}
+	 \item A Reusable Simulation Pipeline for Many-Agent Reinforcement Learning.~\cite{DBLP:conf/dsrt/DominiAPV24}
+	 \item Neighbor-Based Decentralized Training Strategies for Multi-Agent 
+	  Reinforcement Learning.~\cite{DBLP:conf/sac/MalucelliDAV25}
+ \end{enumerate}
+ 
+ \sloppypar
+ \paragraph{\emph{Submitted for review.}}
+ \begin{enumerate}
+	 \item Heterogeneous GNN for Collective-Task Offloading in Cloud-Edge via Deep
+	  Q-Learning.~\cite{DBLP:journals/taas/FarabegoliDAV2025}
+	 \item ProFed: a Benchmark for Proximity-based non-IID Federated Learning.~\cite{DBLP:conf/ijcnn/DominiAV2025}
+	 \item FBFL: A Field-Based Coordination Approach for Data Heterogeneity in 
+	  Federated Learning~\cite{domini2025fbflfieldbasedcoordinationapproach}
+	 \item Scalable Coordination in Swarms: A Graph Neural Network Approach.~\cite{DBLP:conf/coordination/VenturiniDAV2025}
+	 \item Decentralized Proximity-Aware Clustering for Self-Federated Learning.~\cite{DBLP:journals/iot/DominiAFVE2025}
+	 \item A Demonstrator Toolchain for Self-organizing Robot Teams.~\cite{DBLP:conf/coordination/AguzziNDR25} 
+ \end{enumerate}
+
 \section{Future Work}\label{sec:future}
 
 Despite the various contributions proposed in this first year and a half, several open research directions
  remain to be explored in the future.
+
+\paragraph{Real-world use cases.}
 
 First and foremost, it will be crucial to define a detailed set of real-world use cases where our proposed approaches can be applied. 
 %
@@ -450,6 +485,7 @@ Moreover, it will provide valuable insights into how the creation of specialized
 Our intuition is that decomposing a phenomenon into simpler subproblems will enable learning with smaller, more efficient models, 
  ultimately leading to resource savings.
 
+\paragraph{Computational Constraints and Sparse Neural Networks.}
 Another key challenge in these systems is that devices often operate under strict computational constraints. 
 %
 For this reason, we see sparse neural networks as a promising research avenue. 
@@ -463,6 +499,7 @@ We have already begun experiments in this direction in collaboration with the Un
 Future work will also include comparisons with other model optimization techniques, such as quantization, 
  to further reduce the training footprint.
 
+\paragraph{Neighbor-based MARL and Transfer Learning.}
 Additional promising research directions stem from our work on neighbor-based MARL approaches.
 %
 Specifically, it will be interesting to investigate whether and how these methods stabilize learning in environments 
@@ -489,38 +526,6 @@ This could be particularly beneficial in settings where agents have heterogeneou
 In such cases, a more powerful agent could train using a larger model, converge faster, and then act as a teacher to support resource-limited 
  agents in the learning process.
 
-\section{Scientific Publications}\label{sec:pubblications}
-
-\sloppypar
-\paragraph{\emph{Published or accepted for pubblication.}}
-
-\begin{enumerate}
-	\item ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement 
-	 Learning in Scala.~\cite{DBLP:conf/coordination/DominiCAV23}
-	\item ScaRLib: Towards a hybrid toolchain for aggregate computing and many-agent 
-	 reinforcement learning.~\cite{DBLP:journals/scp/DominiCAV24}
-	\item Field-Based Coordination for Federated Learning.~\cite{DBLP:conf/coordination/DominiAEV24}
-	\item Towards Intelligent Pulverized Systems: a Modern Approach 
-	 for Edge-Cloud Services.~\cite{DBLP:conf/woa/DominiFAV24}
-	\item Proximity-based Self-Federated Learning.~\cite{DBLP:journals/corr/abs-2407-12410}
-	\item Towards Self-Adaptive Cooperative Learning in Collective Systems.~\cite{DBLP:conf/acsos/Domini24}
-	\item A Reusable Simulation Pipeline for Many-Agent Reinforcement Learning.~\cite{DBLP:conf/dsrt/DominiAPV24}
-	\item Neighbor-Based Decentralized Training Strategies for Multi-Agent 
-	 Reinforcement Learning.~\cite{DBLP:conf/sac/MalucelliDAV25}
-\end{enumerate}
-
-\sloppypar
-\paragraph{\emph{Submitted for review.}}
-\begin{enumerate}
-	\item Heterogeneous GNN for Collective-Task Offloading in Cloud-Edge via Deep
-	 Q-Learning.~\cite{DBLP:journals/taas/FarabegoliDAV2025}
-	\item ProFed: a Benchmark for Proximity-based non-IID Federated Learning.~\cite{DBLP:conf/ijcnn/DominiAV2025}
-	\item FBFL: A Field-Based Coordination Approach for Data Heterogeneity in 
-	 Federated Learning~\cite{domini2025fbflfieldbasedcoordinationapproach}
-	\item Scalable Coordination in Swarms: A Graph Neural Network Approach.~\cite{DBLP:conf/coordination/VenturiniDAV2025}
-	\item Decentralized Proximity-Aware Clustering for Self-Federated Learning.~\cite{DBLP:journals/iot/DominiAFVE2025}
-	\item A Demonstrator Toolchain for Self-organizing Robot Teams.~\cite{DBLP:conf/coordination/AguzziNDR25} 
-\end{enumerate}
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
 
