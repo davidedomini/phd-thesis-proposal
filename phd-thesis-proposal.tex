@@ -160,7 +160,7 @@ Through this process, agents learn to optimize their policies, ultimately leadin
  emergence of complex collective behaviors.
 %
 On the other hand, for supervised learning scenarios, a common approach is 
- Federated Learning~\cite{DBLP:conf/aistats/McMahanMRHA17}.
+ Federated Learning (FL)~\cite{DBLP:conf/aistats/McMahanMRHA17}.
 %
 FL not only enables cooperative learning to train a shared model from distributed datasets
  but also preserves data privacy.
@@ -283,7 +283,7 @@ Specifically, we trained a GNN-based policy with few agents using a CTDE approac
 
 \paragraph{Independent Learning.}
 When a centralized experience collection is not feasible, making a CTDE architecture impractical, 
- an alternative approach is to adopt an independent learning paradigm (DTDE). 
+ an alternative approach is to adopt a Decentralized Training Decentralized Execution paradigm (DTDE). 
 % 
 In this setting, each agent trains its policy using only its own experience. 
 %
@@ -318,8 +318,8 @@ A widely adopted approach in the literature is Federated Learning (FL), which en
 However, FL typically relies on a centralized architecture, which may not be suitable for large-scale many-agent CAS, 
  as a central server introduces both a single point of failure and a potential bottleneck.
 %
-Another critical challenge in FL is data heterogeneity, meaning that data across clients is non-IID 
- (i.e., not identically and independently distributed). 
+Another critical challenge in FL is data heterogeneity, meaning that data across clients is 
+ non-independently and identically distributed (non-IID).
 % 
 For instance, depending on the level of skewness, some clients may only have access to a subset of the labels. 
 %
@@ -514,8 +514,8 @@ Additional promising research directions stem from our work on neighbor-based MA
 Specifically, it will be interesting to investigate whether and how these methods stabilize learning in environments 
  where agents interact with highly localized phenomena. 
 % 
-Furthermore, in collaboration with a research group at Trinity College Dublin, we plan to explore the integration of neighbor-based learning 
- with transfer learning for RL and aggregate computing.
+Furthermore, in collaboration with a research group at Trinity College Dublin, we plan to explore the integration of neighbor-based 
+ learning with transfer learning for reinforcement learning and aggregate computing.
 %
 This integration could provide multiple benefits. 
 %
@@ -534,6 +534,27 @@ This could be particularly beneficial in settings where agents have heterogeneou
 %
 In such cases, a more powerful agent could train using a larger model, converge faster, and then act as a teacher to support resource-limited 
  agents in the learning process.
+
+\paragraph{Continual Learning}
+While our primary focus is on the more immediate research directions, 
+ we also have a long-term vision for our work. 
+% 
+One possible future direction is the integration of continual learning (CL) techniques into our proposed approaches. 
+%
+Given that CAS are inherently dynamic and evolve over time, ensuring that the learning process can adapt to these changes is crucial. 
+%
+CL offers a promising solution by enabling models to learn from new data while retaining knowledge from past experiences. 
+%
+This would allow our models to remain up-to-date and effectively handle new scenarios without forgetting previously 
+ acquired information.
+
+
+
+
+
+
+
+
 
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
